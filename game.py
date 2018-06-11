@@ -12,7 +12,9 @@ import select
 from bitalino import BITalino
 
 def main():
-    
+
+    print "Connecting to BITalino..."
+
     defaultMACAddress = "20:16:12:21:98:56"
 
     # Set MAC Address with argument
@@ -28,13 +30,11 @@ def main():
         macAddress = defaultMACAddress
         print "Using default MAC address:", macAddress
 
-    runningTime = 5
-
     # Setting other attributes
     batteryThreshold = 30
     acqChannels = [0,1]
     samplingRate = 1000
-    nSamples = 10
+    nSamples = 50
     digitalOutput = [1,1]
 
     # Connect to BITalino
@@ -49,23 +49,22 @@ def main():
     # Start Acquisition
     device.start(samplingRate, acqChannels)
 
-    startTime = time.time()
-    endTime = time.time()
+    gameRunning = True
     
-    while (endTime - startTime) < runningTime:
+    while gameRunning:
         # While not reaching runningTime, read samples
         rawData = device.read(nSamples)
         portA1 = rawData[:,5]
-        print "Port A1: ", portA1
+        #print "Port A1: ", portA1
         valueA1 = numpy.mean(abs(portA1 - numpy.mean(portA1)))
-        print "Value A1: ", valueA1
-        print ""
+        #print "Value A1: ", valueA1
+        #print ""
         portA2 = rawData[:,6]
-        print "Port A2: ", portA2
+        #print "Port A2: ", portA2
         valueA2 = numpy.mean(abs(portA2 - numpy.mean(portA2)))
-        print "Value A2: ", valueA2
-        print "\n"
-        endTime = time.time()
+        #print "Value A2: ", valueA2
+        #print "\n"
+        
 
     # Turn BITalino LED on
     device.trigger(digitalOutput)
