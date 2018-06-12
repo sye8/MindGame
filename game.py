@@ -1,14 +1,10 @@
 import sys
 import os
 import platform
-import math
+
 import numpy
-import re
-import socket
-import serial
-import struct
+
 import time
-import select
 
 from bitalino import BITalino
 
