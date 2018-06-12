@@ -12,7 +12,7 @@ Using a BITalino device, this game compares the EEG readings of the two players.
 * [Python >2.7](https://www.python.org/downloads/) or [Anaconda](https://www.continuum.io/downloads)
 * [NumPy](https://pypi.python.org/pypi/numpy)
 * [pySerial](https://pypi.python.org/pypi/pyserial)
-* [pyBluez](https://pypi.python.org/pypi/PyBluez/) (Not needed for Mac OS)
+* [pyBluez](https://pypi.python.org/pypi/PyBluez/)
 * [BitalinoAPI](https://github.com/BITalinoWorld/revolution-python-api)
 
 ## Device Required:
