@@ -1,6 +1,6 @@
 # MindGame (Work In Progress)
 ## A game which you win by not thinking about it.
-
+*Note that this game does not work on macOS*
 
 Using a BITalino device, this game compares the EEG readings of the two players. Like the rules of a tug-of-war, the player who gives a lower EEG reading than the opponent for a long enough time wins the game.
 
@@ -24,6 +24,3 @@ A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 a
 
 
 *The game is so far only tested with two ACC sensors. EEG testing pending*
-
-
-*Note that this game does not work on macOS*
