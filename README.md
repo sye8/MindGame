@@ -2,7 +2,7 @@
 ## A game which you win by not thinking about it.
 
 
-Using a BITalino device, this game compares the EEG readings of the two players. Like the rules of a tug-of-war, the player who gives an EEG reading closer to the base line for a long enough time wins the game.
+Using a BITalino device, this game compares the EEG readings of the two players. Like the rules of a tug-of-war, the player who gives a lower EEG reading than the opponent for a long enough time wins the game.
 
 
 *Note that this is a TTY game, please don't expect any graphics*
@@ -14,6 +14,9 @@ A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 a
 
 
 The python script has been tested on Ubuntu MATE on Raspberry Pi 3 Model B
+
+
+The game is so far only tested with two ACC sensors. EEG testing pending
 
 
 Note that this game does not work on macOS
