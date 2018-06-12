@@ -78,13 +78,13 @@ def main():
         #print "Value A2: ", valueA2
         #print "\n"
         print "\n\n\n\n\n\n\n"
-        print "\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:"
+        print "\t\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:\n"
         print "\t\t%16d\t\t\t\t\t\t%16d" % (valueA1, valueA2)
         print "\n\n\n"
-        print "\t\t                 **********************"
-        print "\t\t                 *                    *"
-        print "\t\t                 **********************"
-        time.sleep(0.025)
+        print "\t\t\t\t\t\t**********************************"
+        print "\t\t\t\t\t\t*                                *"
+        print "\t\t\t\t\t\t**********************************"
+        time.sleep(0.03)
         os.system(clearCmd)
 
     # Turn BITalino LED on
