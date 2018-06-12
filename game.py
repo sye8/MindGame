@@ -110,7 +110,7 @@ def main():
             print "\n\n\n\n\n"
             print "Player 1 has won".center(int(columns)," ")
             gameRunning = False
-        elif player1Progress == 32:
+        elif player1Progress == 56:
             print "\n\n\n\n\n"
             print "Player 2 has won".center(int(columns)," ")
             gameRunning = False
