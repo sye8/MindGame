@@ -66,7 +66,7 @@ def main():
 
     gameRunning = True
 
-    player1Progress = 16
+    player1Progress = 28
 
     while gameRunning:
         # While not reaching runningTime, read samples
@@ -81,19 +81,31 @@ def main():
         valueA2 = numpy.mean(abs(portA2 - numpy.mean(portA2)))
         #print "Value A2: ", valueA2
         #print "\n"
-        if valueA1 < valueA2:
+        if (valueA2 - valueA1) > 5:
             player1Progress-=1
-        print "\n\n\n\n"
-        print "Player 1 Reading:\t\t\t\tPlayer 2 Reading:".center(int(columns)," ")
+        elif (valueA1 - valueA2) > 5:
+            player1Progress+=1
+
+        print "\n\n"
+        print "Player 1 Reading:".center(int(columns)," ")
         print "\n"
-        print "%16d\t\t\t\t%16d".center(int(columns)," ") % (valueA1, valueA2)
+        print str(valueA1).center(int(columns)," ")
         print "\n\n\n"
-        print "*****************I*****************".center(int(columns)," ")
-        progress = "*" + ' '*player1Progress + 'O' + ' '*(32-player1Progress) + '*'
+
+        print "*****************************I*****************************".center(int(columns)," ")
+        progress = "*" + ' '*player1Progress + 'O' + ' '*(56-player1Progress) + '*'
         print progress.center(int(columns)," ")
-        print "*****************I*****************".center(int(columns)," ")
-        time.sleep(0.05)
+        print "*****************************I*****************************".center(int(columns)," ")
+        print "\n\n\n"
+
+        print "Player 2 Reading:".center(int(columns)," ")
+        print "\n"
+        print str(valueA2).center(int(columns)," ")
+
+        time.sleep(0.2)
+
         os.system(clearCmd)
+
         if player1Progress == 0:
             print "\n\n\n\n\n"
             print "Player 1 has won".center(int(columns)," ")
