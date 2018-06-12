@@ -1,4 +1,5 @@
 import sys
+import os
 import platform
 import math
 import numpy
@@ -12,6 +13,13 @@ import select
 from bitalino import BITalino
 
 def main():
+    
+    clearCmd = "cls||clear"
+
+    if platform.system() == 'Windows':
+        clearCmd = "cls"
+    else:
+        clearCmd = "clear"
 
     print "Connecting to BITalino..."
 
@@ -44,7 +52,12 @@ def main():
     device.battery(batteryThreshold)
 
     # Read BITalino version
+    os.system(clearCmd)
     print "Device Version:", device.version()
+
+    response = raw_input("\n\n\n\n\n\n\t\t\t\t\tAre you ready for the game? Type 'No' to exit")
+    if response == "No":
+        sys.exit()
 
     # Start Acquisition
     device.start(samplingRate, acqChannels)
@@ -64,7 +77,12 @@ def main():
         valueA2 = numpy.mean(abs(portA2 - numpy.mean(portA2)))
         #print "Value A2: ", valueA2
         #print "\n"
-        
+        print "\n\n\n\n\n\n\n"
+        print "\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:"
+        print "\t\t%16d\t\t\t\t\t\t%16d" % (valueA1, valueA2)
+        print "\n\n\n"
+        time.sleep(0.03)
+        os.system(clearCmd)
 
     # Turn BITalino LED on
     device.trigger(digitalOutput)
