@@ -10,18 +10,23 @@ from bitalino import BITalino
 
 def main():
     
+    # OS Specific Initializations
     clearCmd = "cls||clear"
 
     if platform.system() == 'Windows':
         clearCmd = "cls"
+        print "Using Windows default console size 80x24"
+        columns = 80
+        rows = 24
     else:
         clearCmd = "clear"
+        rows, columns = os.popen('stty size', 'r').read().split()
 
     print "Connecting to BITalino..."
 
+    # Set MAC Address with argument
     defaultMACAddress = "20:16:12:21:98:56"
 
-    # Set MAC Address with argument
     if len(sys.argv) == 2:
         macAddress = sys.argv[1]
         print "Using address:", macAddress
@@ -50,8 +55,9 @@ def main():
     # Read BITalino version
     os.system(clearCmd)
     print "Device Version:", device.version()
-
-    response = raw_input("\n\n\n\n\n\n\t\t\t\t\tAre you ready for the game? Type 'No' to exit")
+    
+    print("\n\n\n\n\n\n")
+    response = raw_input("Are you ready for the game? Type 'No' to exit".center(int(columns)," "))
     if response == "No":
         sys.exit()
 
@@ -75,16 +81,27 @@ def main():
         valueA2 = numpy.mean(abs(portA2 - numpy.mean(portA2)))
         #print "Value A2: ", valueA2
         #print "\n"
-        print "\n\n\n\n\n\n\n"
-        print "\t\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:\n"
-        print "\t\t%16d\t\t\t\t\t\t%16d" % (valueA1, valueA2)
+        if valueA1 < valueA2:
+            player1Progress-=1
+        print "\n\n\n\n"
+        print "Player 1 Reading:\t\t\t\tPlayer 2 Reading:".center(int(columns)," ")
+        print "\n"
+        print "%16d\t\t\t\t%16d".center(int(columns)," ") % (valueA1, valueA2)
         print "\n\n\n"
-        print "\t\t\t\t\t\t*****************I*****************"
-        progress = "\t\t\t\t\t\t*" + ' '*player1Progress + 'O' + ' '*(32-player1Progress) + '*'
-        print progress
-        print "\t\t\t\t\t\t*****************I*****************"
-        time.sleep(0.025)
+        print "*****************I*****************".center(int(columns)," ")
+        progress = "*" + ' '*player1Progress + 'O' + ' '*(32-player1Progress) + '*'
+        print progress.center(int(columns)," ")
+        print "*****************I*****************".center(int(columns)," ")
+        time.sleep(0.05)
         os.system(clearCmd)
+        if player1Progress == 0:
+            print "\n\n\n\n\n"
+            print "Player 1 has won".center(int(columns)," ")
+            gameRunning = False
+        elif player1Progress == 32:
+            print "\n\n\n\n\n"
+            print "Player 2 has won".center(int(columns)," ")
+            gameRunning = False
 
     # Turn BITalino LED on
     device.trigger(digitalOutput)
