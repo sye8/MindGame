@@ -81,6 +81,9 @@ def main():
         print "\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:"
         print "\t\t%16d\t\t\t\t\t\t%16d" % (valueA1, valueA2)
         print "\n\n\n"
+        print "\t\t                 **********************"
+        print "\t\t                 *                    *"
+        print "\t\t                 **********************"
         time.sleep(0.025)
         os.system(clearCmd)
 
