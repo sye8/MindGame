@@ -59,7 +59,9 @@ def main():
     device.start(samplingRate, acqChannels)
 
     gameRunning = True
-    
+
+    player1Progress = 16
+
     while gameRunning:
         # While not reaching runningTime, read samples
         rawData = device.read(nSamples)
@@ -77,10 +79,11 @@ def main():
         print "\t\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:\n"
         print "\t\t%16d\t\t\t\t\t\t%16d" % (valueA1, valueA2)
         print "\n\n\n"
-        print "\t\t\t\t\t\t**********************************"
-        print "\t\t\t\t\t\t*                                *"
-        print "\t\t\t\t\t\t**********************************"
-        time.sleep(0.03)
+        print "\t\t\t\t\t\t*****************I*****************"
+        progress = "\t\t\t\t\t\t*" + ' '*player1Progress + 'O' + ' '*(32-player1Progress) + '*'
+        print progress
+        print "\t\t\t\t\t\t*****************I*****************"
+        time.sleep(0.025)
         os.system(clearCmd)
 
     # Turn BITalino LED on
