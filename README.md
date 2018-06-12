@@ -8,9 +8,16 @@ Using a BITalino device, this game compares the EEG readings of the two players.
 *Note that this is a TTY game, please don't expect any graphics*
 
 
-### Devices Required:
+## Dependencies
+* [Python >2.7](https://www.python.org/downloads/) or [Anaconda](https://www.continuum.io/downloads)
+* [NumPy](https://pypi.python.org/pypi/numpy)
+* [pySerial](https://pypi.python.org/pypi/pyserial)
+* [pyBluez](https://pypi.python.org/pypi/PyBluez/) (Not needed for Mac OS)
+* [BitalinoAPI](https://github.com/BITalinoWorld/revolution-python-api)
 
-A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 and A2.
+## Device Required:
+
+A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 and A2. The terminal should have bluetooth capabilities
 
 
 **The python script has been tested on Ubuntu MATE on Raspberry Pi 3 Model B**
