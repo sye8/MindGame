@@ -1,3 +1,14 @@
+"""
+License
+-------
+GNU LESSER GENERAL PUBLIC LICENSE v3
+2018
+
+Author
+------
+Sifan Ye
+"""
+
 import sys
 import os
 import platform
