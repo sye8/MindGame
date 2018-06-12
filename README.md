@@ -1,5 +1,5 @@
 # MindGame (Work In Progress)
-## A game which you win by not thinking about it.
+### A strange game. You win by not thinking about it.
 *Note that this game does not work on macOS*
 
 Using a BITalino device, this game compares the EEG readings of the two players. Like the rules of a tug-of-war, the player who gives a lower EEG reading than the opponent for a long enough time wins the game.
