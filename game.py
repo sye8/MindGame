@@ -81,7 +81,7 @@ def main():
         print "\t\tPlayer 1 Reading:\t\t\t\t\t\tPlayer 2 Reading:"
         print "\t\t%16d\t\t\t\t\t\t%16d" % (valueA1, valueA2)
         print "\n\n\n"
-        time.sleep(0.03)
+        time.sleep(0.025)
         os.system(clearCmd)
 
     # Turn BITalino LED on
