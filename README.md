@@ -1,4 +1,4 @@
-# MindGame
+# MindGame (Work In Progress)
 ## A game which you win by not thinking about it.
 
 
