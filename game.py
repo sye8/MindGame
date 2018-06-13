@@ -75,6 +75,30 @@ def main():
     # Start Acquisition
     device.start(samplingRate, acqChannels)
 
+    # Take baseline measurement
+    p1Base = []
+    p2Base = []
+
+    start = time.time()
+    end = time.time()
+
+    samplingTime = 30
+
+    print "Sampling for baseline...".center(int(columns)," "))
+
+    while (end - start) < samplingTime:
+        # Sampling for baseline
+        baseSample = device.read(nSamples)
+        p1Base.append(numpy.mean(baseSample[:,5]))
+        p2Base.append(numpy.mean(baseSample[:,6]))
+        end = time.time()
+
+    
+
+    # Start Game
+
+    os.system(clearCmd)
+
     gameRunning = True
 
     player1Progress = 28
@@ -92,9 +116,9 @@ def main():
         valueA2 = numpy.mean(abs(portA2 - numpy.mean(portA2)))
         #print "Value A2: ", valueA2
         #print "\n"
-        if (valueA2 - valueA1) > 5:
+        if (valueA2 - valueA1) > 0.5:
             player1Progress-=1
-        elif (valueA1 - valueA2) > 5:
+        elif (valueA1 - valueA2) > 0.5:
             player1Progress+=1
 
         print "\n\n"
@@ -104,7 +128,7 @@ def main():
         print "\n\n\n"
 
         print "*****************************I*****************************".center(int(columns)," ")
-        progress = "*" + ' '*player1Progress + 'O' + ' '*(56-player1Progress) + '*'
+        progress = "P1 *" + ' '*player1Progress + 'O' + ' '*(56-player1Progress) + '* P2'
         print progress.center(int(columns)," ")
         print "*****************************I*****************************".center(int(columns)," ")
         print "\n\n\n"
