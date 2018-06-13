@@ -93,7 +93,9 @@ def main():
         p2Base.append(numpy.mean(baseSample[:,6]))
         end = time.time()
 
-    
+    p1B = numpy.mean(p1Base)
+    p2B = numpy.mean(p2Base)
+
 
     # Start Game
 
@@ -108,18 +110,22 @@ def main():
         rawData = device.read(nSamples)
         portA1 = rawData[:,5]
         #print "Port A1: ", portA1
-        valueA1 = numpy.mean(abs(portA1 - numpy.mean(portA1)))
+        valueA1 = numpy.mean(portA1 - p1B)
         #print "Value A1: ", valueA1
         #print ""
         portA2 = rawData[:,6]
         #print "Port A2: ", portA2
-        valueA2 = numpy.mean(abs(portA2 - numpy.mean(portA2)))
+        valueA2 = numpy.mean(portA2 - p2B)
         #print "Value A2: ", valueA2
         #print "\n"
         if (valueA2 - valueA1) > 0.5:
             player1Progress-=1
+        elif (valueA2 - valueA1) > 1:
+            plater1Progress-=2
         elif (valueA1 - valueA2) > 0.5:
             player1Progress+=1
+        elif (valueA1 - valueA2) > 1:
+            player1Progress+=2
 
         print "\n\n"
         print "Player 1 Reading:".center(int(columns)," ")
