@@ -66,11 +66,6 @@ def main():
     # Read BITalino version
     os.system(clearCmd)
     print "Device Version:", device.version()
-    
-    print("\n\n\n\n\n\n")
-    response = raw_input("Are you ready for the game? Type 'No' to exit".center(int(columns)," "))
-    if response == "No":
-        sys.exit()
 
     # Start Acquisition
     device.start(samplingRate, acqChannels)
@@ -84,7 +79,7 @@ def main():
 
     samplingTime = 15
 
-    print "Sampling for baseline...".center(int(columns)," ")
+    print "Sampling for baseline..."
 
     while (end - start) < samplingTime:
         # Sampling for baseline
@@ -98,9 +93,15 @@ def main():
 
     print "\n"
     p1P = "Player 1 Baseline: " + str(p1B)
-    print p1P.center(int(columns)," ")
+    print p1P
     p2P = "Player 2 Baseline: " + str(p2B)
-    print p2P.center(int(columns)," ")
+    print p2P
+
+
+    print("\n\n\n\n\n\n")
+    response = raw_input("Are you ready for the game? Type 'No' to exit".center(int(columns)," "))
+    if response == "No":
+        sys.exit()
 
     print "\n"
     print "Starting Game...".center(int(columns)," ")
@@ -129,13 +130,13 @@ def main():
         valueA2 = numpy.mean(portA2 - p2B)
         #print "Value A2: ", valueA2
         #print "\n"
-        if (valueA2 - valueA1) > 10:
+        if (valueA2 - valueA1) > 5:
             player1Progress-=1
-        elif (valueA2 - valueA1) > 20:
+        elif (valueA2 - valueA1) > 10:
             plater1Progress-=2
-        elif (valueA1 - valueA2) > 10:
+        elif (valueA1 - valueA2) > 5:
             player1Progress+=1
-        elif (valueA1 - valueA2) > 20:
+        elif (valueA1 - valueA2) > 10:
             player1Progress+=2
 
         print "\n\n"
