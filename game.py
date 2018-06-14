@@ -82,9 +82,9 @@ def main():
     start = time.time()
     end = time.time()
 
-    samplingTime = 30
+    samplingTime = 20
 
-    print "Sampling for baseline...".center(int(columns)," "))
+    print "Sampling for baseline...".center(int(columns)," ")
 
     while (end - start) < samplingTime:
         # Sampling for baseline
@@ -118,13 +118,13 @@ def main():
         valueA2 = numpy.mean(portA2 - p2B)
         #print "Value A2: ", valueA2
         #print "\n"
-        if (valueA2 - valueA1) > 0.5:
+        if (valueA2 - valueA1) > 10:
             player1Progress-=1
-        elif (valueA2 - valueA1) > 1:
+        elif (valueA2 - valueA1) > 20:
             plater1Progress-=2
-        elif (valueA1 - valueA2) > 0.5:
+        elif (valueA1 - valueA2) > 10:
             player1Progress+=1
-        elif (valueA1 - valueA2) > 1:
+        elif (valueA1 - valueA2) > 20:
             player1Progress+=2
 
         print "\n\n"
