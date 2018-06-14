@@ -82,7 +82,7 @@ def main():
     start = time.time()
     end = time.time()
 
-    samplingTime = 20
+    samplingTime = 15
 
     print "Sampling for baseline...".center(int(columns)," ")
 
@@ -95,6 +95,17 @@ def main():
 
     p1B = numpy.mean(p1Base)
     p2B = numpy.mean(p2Base)
+
+    print "\n"
+    p1P = "Player 1 Baseline: " + str(p1B)
+    print p1P.center(int(columns)," ")
+    p2P = "Player 2 Baseline: " + str(p2B)
+    print p2P.center(int(columns)," ")
+
+    print "\n"
+    print "Starting Game...".center(int(columns)," ")
+
+    time.sleep(5)
 
 
     # Start Game
