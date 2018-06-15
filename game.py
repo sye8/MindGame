@@ -53,8 +53,8 @@ def main():
     # Setting other attributes
     batteryThreshold = 30
     acqChannels = [0,1]
-    samplingRate = 1000
-    nSamples = 50
+    samplingRate = 100
+    nSamples = 20
     digitalOutput = [1,1]
 
     # Connect to BITalino
@@ -130,13 +130,13 @@ def main():
         valueA2 = numpy.mean(portA2 - p2B)
         #print "Value A2: ", valueA2
         #print "\n"
-        if (valueA2 - valueA1) > 5:
+        if (valueA2 - valueA1) > 10:
             player1Progress-=1
-        elif (valueA2 - valueA1) > 10:
+        elif (valueA2 - valueA1) > 20:
             plater1Progress-=2
-        elif (valueA1 - valueA2) > 5:
-            player1Progress+=1
         elif (valueA1 - valueA2) > 10:
+            player1Progress+=1
+        elif (valueA1 - valueA2) > 20:
             player1Progress+=2
 
         print "\n\n"
