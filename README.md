@@ -1,4 +1,4 @@
-# MindGame (Work In Progress)
+# MindGame
 ### A strange game. You win by not thinking about it.
 *Note that this game does not work on macOS*
 
