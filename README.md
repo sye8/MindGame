@@ -20,4 +20,4 @@ Using a BITalino device, this game compares the EEG readings of the two players.
 A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 and A2. The terminal should have bluetooth capabilities
 
 
-**The python script has been tested on Ubuntu MATE on Raspberry Pi 3 Model B**
+**The python script has only been tested on Ubuntu MATE on Raspberry Pi 3 Model B**
