@@ -7,6 +7,8 @@ Using a BITalino device, this game compares the EEG readings of the two players.
 
 *Note that this is a TTY game, please don't expect any graphics*
 
+***Note that apparently the BitalinoAPI is written in Python 2 syntax. So if you only have Python 3, please install Python 2***
+
 
 ## Dependencies
 * [Python >2.7](https://www.python.org/downloads/) or [Anaconda](https://www.continuum.io/downloads)
@@ -35,4 +37,5 @@ sudo python get-pip.py --force-reinstall
 A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 and A2. The terminal should have bluetooth capabilities
 
 
-**The python script has only been tested on Ubuntu MATE on Raspberry Pi 3 Model B**
+## Compatibility Note
+**This python script has only been tested on Ubuntu MATE on Raspberry Pi 3 Model B**
