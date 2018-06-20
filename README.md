@@ -15,6 +15,21 @@ Using a BITalino device, this game compares the EEG readings of the two players.
 * [pyBluez](https://pypi.python.org/pypi/PyBluez/)
 * [BitalinoAPI](https://github.com/BITalinoWorld/revolution-python-api) (When running, please place into the same folder as game.py)
 
+### To install Dependencies:
+```sh
+sudo apt-get install python python-dev python-pip bluez libbluetooth-dev
+sudo pip install numpy pyserial pybluez bitalino
+git clone https://github.com/BITalinoWorld/revolution-python-api.git
+cd revolution-python-api
+sudo python setup.py install
+```
+*(For pip2.7) Note that if your pip complains about `no module named _internal` or `no module named internal`:*
+
+```sh
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python get-pip.py --force-reinstall
+```
+
 ## Device Required:
 
 A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 and A2. The terminal should have bluetooth capabilities
