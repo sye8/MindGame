@@ -41,7 +41,7 @@ sudo pip3 install numpy pyserial pybluez bitalino
 ```
 
 **Note here we are not cloning the official BITalino git repo since we are using their old API for Python 3 support, which I have included in this repo. (Thanks to [Gautam Sawala](https://github.com/gautamsawala) for this suggestion)**
-```
+
 
 ## Device Required:
 
