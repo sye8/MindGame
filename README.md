@@ -18,6 +18,8 @@ Using a BITalino device, this game compares the EEG readings of the two players.
 * [BitalinoAPI](https://github.com/BITalinoWorld/revolution-python-api)
 
 ### To install Dependencies:
+**For Python 2.7**
+
 ```sh
 sudo apt-get install python python-dev python-pip bluez libbluetooth-dev
 sudo pip install numpy pyserial pybluez bitalino
@@ -30,6 +32,15 @@ sudo python setup.py install
 ```sh
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py --force-reinstall
+```
+
+**For Python 3**
+```sh
+sudo apt-get install python3 python3-dev python3-pip bluez libbluetooth-dev
+sudo pip3 install numpy pyserial pybluez bitalino
+```
+
+**Note here we are not cloning the official BITalino git repo since we are using their old API for Python 3 support, which I have included in this repo. (Thanks to [Gautam Sawala](https://github.com/gautamsawala) for this suggestion)**
 ```
 
 ## Device Required:
