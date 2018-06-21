@@ -99,7 +99,8 @@ def main():
 
 
     print("\n\n\n\n\n\n")
-    response = raw_input("Are you ready for the game? Type 'No' to exit".center(int(columns)," "))
+    print("Are you ready for the game? Type 'No' to exit".center(int(columns)," "))
+    response = sys.stdin.readline().rstrip()
     if response == "No":
         sys.exit()
 
