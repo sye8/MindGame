@@ -109,7 +109,7 @@ def main():
         sys.exit()
 
     print("\n")
-    print("Starting Game...".center(int(columns) + " "))
+    print("Starting Game...".center(int(columns), " "))
 
     time.sleep(5)
 
