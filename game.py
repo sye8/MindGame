@@ -30,29 +30,29 @@ def main():
 
     if platform.system() == 'Windows':
         clearCmd = "cls"
-        print "Using Windows default console size 80x24"
+        print("Using Windows default console size 80x24")
         columns = 80
         rows = 24
     else:
         clearCmd = "clear"
         rows, columns = os.popen('stty size', 'r').read().split()
 
-    print "Connecting to BITalino..."
+    print("Connecting to BITalino...")
 
     # Set MAC Address with argument
     defaultMACAddress = "20:16:12:21:98:56"
 
     if len(sys.argv) == 2:
         macAddress = sys.argv[1]
-        print "Using address:", macAddress
+        print("Using address: " + macAddress)
     elif len(sys.argv) > 1:
-        print "Please input only 1 argument, which is the address of the BITalino device."
-        print "Running without argument will use default MAC Address =", defaultMACAddress
-        print "Exiting..."
+        print("Please input only 1 argument, which is the address of the BITalino device.")
+        print("Running without argument will use default MAC Address = " + defaultMACAddress)
+        print("Exiting...")
         exit()
     else:
         macAddress = defaultMACAddress
-        print "Using default MAC address:", macAddress
+        print("Using default MAC address: " + macAddress)
 
     # Setting other attributes
     batteryThreshold = 30
@@ -69,7 +69,7 @@ def main():
 
     # Read BITalino version
     os.system(clearCmd)
-    print "Device Version:", device.version()
+    print("Device Version:" + device.version())
 
     # Start Acquisition
     device.start(samplingRate, acqChannels)
@@ -83,7 +83,7 @@ def main():
 
     samplingTime = 15
 
-    print "Sampling for baseline..."
+    print("Sampling for baseline...")
 
     while (end - start) < samplingTime:
         # Sampling for baseline
@@ -95,11 +95,11 @@ def main():
     p1B = numpy.mean(p1Base)
     p2B = numpy.mean(p2Base)
 
-    print "\n"
+    print("\n")
     p1P = "Player 1 Baseline: " + str(p1B)
-    print p1P
+    print(p1P)
     p2P = "Player 2 Baseline: " + str(p2B)
-    print p2P
+    print(p2P)
 
 
     print("\n\n\n\n\n\n")
@@ -108,8 +108,8 @@ def main():
     if response == "No":
         sys.exit()
 
-    print "\n"
-    print "Starting Game...".center(int(columns)," ")
+    print("\n")
+    print("Starting Game...".center(int(columns) + " "))
 
     time.sleep(5)
 
@@ -144,33 +144,33 @@ def main():
         elif (valueA1 - valueA2) > 20:
             player1Progress+=2
 
-        print "\n\n"
-        print "Player 1 Reading:".center(int(columns)," ")
-        print "\n"
-        print str(valueA1).center(int(columns)," ")
-        print "\n\n\n"
+        print("\n\n")
+        print("Player 1 Reading:".center(int(columns)," "))
+        print("\n")
+        print(str(valueA1).center(int(columns)," "))
+        print("\n\n\n")
 
-        print "*****************************I*****************************".center(int(columns)," ")
+        print("*****************************I*****************************".center(int(columns)," "))
         progress = "P1 *" + ' '*player1Progress + 'O' + ' '*(56-player1Progress) + '* P2'
-        print progress.center(int(columns)," ")
-        print "*****************************I*****************************".center(int(columns)," ")
-        print "\n\n\n"
+        print(progress.center(int(columns)," "))
+        print("*****************************I*****************************".center(int(columns)," "))
+        print("\n\n\n")
 
-        print "Player 2 Reading:".center(int(columns)," ")
-        print "\n"
-        print str(valueA2).center(int(columns)," ")
+        print("Player 2 Reading:".center(int(columns)," "))
+        print("\n")
+        print(str(valueA2).center(int(columns)," "))
 
         time.sleep(0.2)
 
         os.system(clearCmd)
 
         if player1Progress == 0:
-            print "\n\n\n\n\n"
-            print "Player 1 has won".center(int(columns)," ")
+            print("\n\n\n\n\n")
+            print("Player 1 has won".center(int(columns)," "))
             gameRunning = False
         elif player1Progress == 56:
-            print "\n\n\n\n\n"
-            print "Player 2 has won".center(int(columns)," ")
+            print("\n\n\n\n\n")
+            print("Player 2 has won".center(int(columns)," "))
             gameRunning = False
 
     # Turn BITalino LED on
