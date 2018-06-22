@@ -4,11 +4,7 @@
 
 Using a BITalino device, this game compares the EEG readings of the two players. Like the rules of a tug-of-war, the player who gives a lower EEG reading than the opponent for a long enough time wins the game.
 
-
 *Note that this is a TTY game, please don't expect any graphics*
-
-***Note that apparently the BitalinoAPI is written in Python 2 syntax. So if you only have Python 3, please install Python 2***
-
 
 ## Dependencies
 * [Python >2.7](https://www.python.org/downloads/) or [Anaconda](https://www.continuum.io/downloads)
@@ -46,7 +42,6 @@ sudo pip3 install numpy pyserial pybluez bitalino
 ## Device Required:
 
 A BITalino with bluetooth enabled and two EEG sensors connecting to channel A1 and A2. The terminal should have bluetooth capabilities
-
 
 ## Compatibility Note
 **This python script has only been tested on Ubuntu MATE on Raspberry Pi 3 Model B**
